@@ -1,0 +1,43 @@
+# --- Maven ---
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+release.properties
+dependency-reduced-pom.xml
+
+# --- IntelliJ IDEA ---
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# --- VS Code / Eclipse (extension Java) ---
+.vscode/
+.classpath
+.project
+.settings/
+.factorypath
+bin/
+
+# --- Java ---
+*.class
+*.log
+hs_err_pid*
+
+# --- OS ---
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+
+# --- LaTeX (rapport) ---
+rapport/**/*.aux
+rapport/**/*.toc
+rapport/**/*.out
+rapport/**/*.synctex.gz
+rapport/**/*.fdb_latexmk
+rapport/**/*.fls
+
+# NB : le dossier doc/ (Javadoc) est un livrable, il n'est PAS ignoré.
