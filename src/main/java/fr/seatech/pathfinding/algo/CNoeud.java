@@ -62,8 +62,7 @@ public class CNoeud implements Comparable<CNoeud> {
      * @return la priorité f = g + h
      */
     public int getF() {
-        // TODO [Étape 2]
-        return 0;
+        return g + h;
     }
 
     /**
@@ -71,7 +70,6 @@ public class CNoeud implements Comparable<CNoeud> {
      */
     @Override
     public int compareTo(CNoeud autre) {
-        // TODO [Étape 2] comparer getF(), départager éventuellement par h
-        return 0;
+        return Integer.compare(getF(), autre.getF());
     }
 }
