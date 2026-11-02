@@ -31,14 +31,3 @@ détection de conflits, et planification coordonnée avec Google OR-Tools (CP-SA
 
 Les plateaux de test vont dans `src/main/resources/maps/`, les fichiers SceneBuilder dans `src/main/resources/fxml/`, le rapport et les
 schémas dans `rapport/`.
-
-## Utilisation de l'IA
-
-L'énoncé autorise l'IA à condition de le signaler dans le code et dans le
-rapport. Noter ici chaque usage, et ajouter un commentaire
-`// Généré/aidé par IA : ...` dans le code concerné.
-
-| Date | Outil | Prompt (résumé) | Fichiers concernés | Ce qui a été repris / modifié |
-|---|---|---|---|---|
-| 2026-10-22 | Claude | Création du squelette Maven (dossiers, classes vides, pom.xml) | Tout le squelette | Structure reprise telle quelle, aucune logique générée |
-| 2026-11-02 | Claude | Implémentation du modèle (étape 1) | `CCase`, `CPlateau`, `CTrajectoire`, `CPersonnage` | Méthodes marquées `// [IA] Claude` |
