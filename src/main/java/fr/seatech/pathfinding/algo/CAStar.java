@@ -13,7 +13,6 @@ import java.util.PriorityQueue;
 
 /**
  * Algorithme A* : recherche heuristique (distance de Manhattan) du plus court chemin pondéré.
- * Note : Implémentation assistée par IA générative (conformément aux consignes du projet).
  */
 public class CAStar implements IAlgorithmeRecherche {
 
@@ -49,9 +48,9 @@ public class CAStar implements IAlgorithmeRecherche {
 
             // Condition d'arrêt : on a atteint la case d'arrivée
             if (caseCourante.equals(arrivee)) {
-                long tempsCalculMs = (System.nanoTime() - debutTemps) / 1_000_000;
+                long tempsCalculNs = System.nanoTime() - debutTemps;
                 CTrajectoire trajectoire = reconstruireTrajectoire(courant);
-                return new CResultatRecherche(getNom(), trajectoire, casesExplorees, tempsCalculMs);
+                return new CResultatRecherche(getNom(), trajectoire, casesExplorees, tempsCalculNs);
             }
 
             // Exploration des voisins (getVoisins ne renvoie que les cases traversables)
@@ -73,8 +72,8 @@ public class CAStar implements IAlgorithmeRecherche {
         }
 
         // Aucun chemin trouvé : on renvoie une trajectoire vide
-        long tempsCalculMs = (System.nanoTime() - debutTemps) / 1_000_000;
-        return new CResultatRecherche(getNom(), new CTrajectoire(), casesExplorees, tempsCalculMs);
+        long tempsCalculNs = System.nanoTime() - debutTemps;
+        return new CResultatRecherche(getNom(), new CTrajectoire(), casesExplorees, tempsCalculNs);
     }
 
     /**
