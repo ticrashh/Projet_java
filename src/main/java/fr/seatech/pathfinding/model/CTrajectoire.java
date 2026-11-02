@@ -23,11 +23,16 @@ public class CTrajectoire {
 
     /**
      * Ajoute une case en fin de trajectoire et met à jour le coût total.
+     * Le coût de la case de départ n'est pas compté : seul le fait
+     * d'entrer dans une case coûte.
      *
      * @param c la case à ajouter
      */
     public void ajouterCase(CCase c) {
-        // TODO [Étape 1] ajouter la case et mettre à jour coutTotal
+        if (!cases.isEmpty()) {
+            coutTotal += c.getCout();
+        }
+        cases.add(c);
     }
 
     /** @return la liste (non modifiable) des cases de la trajectoire */
@@ -40,8 +45,10 @@ public class CTrajectoire {
      * @return la case occupée au temps {@code t} (la dernière case si {@code t} dépasse la fin)
      */
     public CCase getCaseAuTemps(int t) {
-        // TODO [Étape 1]
-        return null;
+        if (cases.isEmpty()) {
+            return null;
+        }
+        return cases.get(Math.min(t, cases.size() - 1));
     }
 
     /** @return le nombre de cases de la trajectoire */

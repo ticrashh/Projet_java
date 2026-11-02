@@ -96,8 +96,7 @@ public class CPersonnage {
 
     /** @return {@code true} si le personnage est sur sa case but */
     public boolean estArrive() {
-        // TODO [Étape 1]
-        return false;
+        return position != null && position.equals(but);
     }
 
     @Override

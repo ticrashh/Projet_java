@@ -10,6 +10,9 @@ import java.util.List;
  */
 public class CPlateau {
 
+    /** Déplacements en 4-connexité : haut, bas, gauche, droite. */
+    private static final int[][] DIRECTIONS_4 = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+
     private final int nbLignes;
     private final int nbColonnes;
     private final CCase[][] cases;
@@ -24,7 +27,11 @@ public class CPlateau {
         this.nbLignes = nbLignes;
         this.nbColonnes = nbColonnes;
         this.cases = new CCase[nbLignes][nbColonnes];
-        // TODO [Étape 1] remplir la grille avec des cases LIBRE
+        for (int l = 0; l < nbLignes; l++) {
+            for (int c = 0; c < nbColonnes; c++) {
+                cases[l][c] = new CCase(l, c, ETypeCase.LIBRE);
+            }
+        }
     }
 
     /** @return le nombre de lignes */
@@ -52,8 +59,7 @@ public class CPlateau {
      * @return {@code true} si les coordonnées sont dans le plateau
      */
     public boolean estDansPlateau(int ligne, int colonne) {
-        // TODO [Étape 1]
-        return false;
+        return ligne >= 0 && ligne < nbLignes && colonne >= 0 && colonne < nbColonnes;
     }
 
     /**
@@ -65,7 +71,13 @@ public class CPlateau {
      */
     public List<CCase> getVoisins(CCase c) {
         List<CCase> voisins = new ArrayList<>();
-        // TODO [Étape 1] parcourir les 4 directions et garder les cases traversables
+        for (int[] d : DIRECTIONS_4) {
+            int l = c.getLigne() + d[0];
+            int col = c.getColonne() + d[1];
+            if (estDansPlateau(l, col) && cases[l][col].estTraversable()) {
+                voisins.add(cases[l][col]);
+            }
+        }
         return voisins;
     }
 

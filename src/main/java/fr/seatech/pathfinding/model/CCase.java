@@ -1,5 +1,7 @@
 package fr.seatech.pathfinding.model;
 
+import java.util.Objects;
+
 /**
  * Case du plateau, c'est-à-dire un sommet du graphe de déplacement.
  * <p>
@@ -58,19 +60,22 @@ public class CCase {
     /** Deux cases sont égales si elles ont les mêmes coordonnées. */
     @Override
     public boolean equals(Object o) {
-        // TODO [Étape 1] comparer ligne et colonne
-        return super.equals(o);
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof CCase autre)) {
+            return false;
+        }
+        return ligne == autre.ligne && colonne == autre.colonne;
     }
 
     @Override
     public int hashCode() {
-        // TODO [Étape 1] cohérent avec equals (ex. Objects.hash(ligne, colonne))
-        return super.hashCode();
+        return Objects.hash(ligne, colonne);
     }
 
     @Override
     public String toString() {
-        // TODO affichage lisible, ex. "(ligne, colonne)"
-        return super.toString();
+        return "(" + ligne + ", " + colonne + ")";
     }
 }
