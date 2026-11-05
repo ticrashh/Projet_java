@@ -54,19 +54,19 @@ public class CResultatRecherche {
 
     /** @return {@code true} si un chemin a été trouvé */
     public boolean estCheminTrouve() {
-        // TODO [Étape 2]
-        return false;
+        return chemin != null && !chemin.estVide();
     }
 
     /** @return le nombre de cases explorées */
     public int getNbCasesExplorees() {
-        // TODO [Étape 2]
-        return 0;
+        return casesExplorees.size();
     }
 
     /** @return le coût du chemin trouvé */
     public int getCout() {
-        // TODO [Étape 2]
-        return 0;
+        if (chemin == null) {
+            return 0;
+        }
+        return chemin.getCoutTotal();
     }
 }
