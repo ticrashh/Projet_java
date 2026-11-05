@@ -49,7 +49,7 @@ public class CAStar implements IAlgorithmeRecherche {
 
             // Condition d'arrêt : on a atteint la case d'arrivée
             if (caseCourante.equals(arrivee)) {
-                long tempsCalculMs = (System.nanoTime() - debutTemps) / 1_000_000;
+                long tempsCalculMs = (System.nanoTime() - debutTemps) ;
                 CTrajectoire trajectoire = reconstruireTrajectoire(courant);
                 return new CResultatRecherche(getNom(), trajectoire, casesExplorees, tempsCalculMs);
             }
@@ -73,7 +73,7 @@ public class CAStar implements IAlgorithmeRecherche {
         }
 
         // Aucun chemin trouvé : on renvoie une trajectoire vide
-        long tempsCalculMs = (System.nanoTime() - debutTemps) / 1_000_000;
+        long tempsCalculMs = (System.nanoTime() - debutTemps) ;
         return new CResultatRecherche(getNom(), new CTrajectoire(), casesExplorees, tempsCalculMs);
     }
 
