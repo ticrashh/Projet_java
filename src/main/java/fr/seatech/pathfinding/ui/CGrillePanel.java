@@ -8,7 +8,6 @@ import javafx.scene.paint.Color;
 
 import fr.seatech.pathfinding.model.ETypeCase;
 
-
 /**
  * Zone de dessin du plateau : cases, obstacles, cases explorées, chemins
  * et personnages.
@@ -50,11 +49,11 @@ public class CGrillePanel extends Canvas {
     }
 
     /**
- * Couleur d'affichage d'un type de case.
- *
-    @param t le type de case
-    @return la couleur correspondante
- */
+     * Couleur d'affichage d'un type de case.
+     *
+     * @param t le type de case
+     * @return la couleur correspondante
+     */
     private Color couleur(ETypeCase t) {
         return switch (t) {
             case LIBRE -> Color.WHITE;
